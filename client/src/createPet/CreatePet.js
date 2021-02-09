@@ -76,15 +76,15 @@ export const CreatePet = () => {
         userId,
       },
     },
-    // awaitRefetchQueries: true,
-    // refetchQueries: [
-    //   {
-    //     query: QUERY_USER,
-    //     variables: {
-    //       id: userId,
-    //     },
-    //   },
-    // ],
+    awaitRefetchQueries: true,
+    refetchQueries: [
+      {
+        query: QUERY_USER,
+        variables: {
+          id: userId,
+        },
+      },
+    ],
   });
 
   if (data?.createPet?.id) {

@@ -77,12 +77,12 @@ const DELETE_PET = gql`
   }
 `;
 
-// const removePetFromCache = (cache, response) => {
-//   const id = response.data.deletePet;
-//   cache.evict({
-//     id: cache.identify({ id, __typename: 'Pet' }),
-//   });
-// };
+const removePetFromCache = (cache, response) => {
+  const id = response.data.deletePet;
+  cache.evict({
+    id: cache.identify({ id, __typename: 'Pet' }),
+  });
+};
 
 export const Pet = () => {
   const styles = useStyles();
@@ -115,7 +115,7 @@ export const Pet = () => {
 
   const [deletePet, deleteResponse] = useMutation(DELETE_PET, {
     variables: { id },
-    // update: removePetFromCache,
+    update: removePetFromCache,
   });
 
   React.useEffect(() => {
