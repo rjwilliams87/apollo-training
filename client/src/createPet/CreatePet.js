@@ -12,7 +12,7 @@ import {
 } from '@material-ui/core';
 
 import { Layout } from '../layout';
-import { QUERY_USER } from '../dashboard';
+// import { QUERY_USER } from '../dashboard';
 
 const useStyles = makeStyles({
   form: {
@@ -76,15 +76,6 @@ export const CreatePet = () => {
         userId,
       },
     },
-    // awaitRefetchQueries: true,
-    // refetchQueries: [
-    //   {
-    //     query: QUERY_USER,
-    //     variables: {
-    //       id: userId,
-    //     },
-    //   },
-    // ],
   });
 
   if (data?.createPet?.id) {

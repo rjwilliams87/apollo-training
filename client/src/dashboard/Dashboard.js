@@ -61,7 +61,6 @@ export const QUERY_USER = gql`
         name
       }
       zip
-      city @client
     }
   }
 `;
@@ -86,7 +85,7 @@ export const Dashboard = () => {
                   {data?.user?.name?.first} {data?.user?.name?.last}
                 </Typography>
                 <Typography>{data?.user?.username}</Typography>
-                <Typography>{data?.user?.city}</Typography>
+                <Typography>{data?.user?.zip}</Typography>
               </Box>
             </Box>
             <Box>
