@@ -6,8 +6,7 @@
   "type": "module",
   "scripts": {
     "start:server": "node server",
-    "start:client": "parcel client/index.html --out-dir client/dist",
-    "start": "npm run start:server && npm run start:client"
+    "start:client": "parcel client/index.html --out-dir client/dist"
   },
   "author": "",
   "license": "ISC",

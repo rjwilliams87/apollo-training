@@ -59,7 +59,6 @@ export const LoginForm = () => {
   });
 
   if (data?.login) {
-    console.log('data = ', data);
     return <Redirect to={`/dashboard/${data?.login}`} />;
   }
 

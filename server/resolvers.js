@@ -3,20 +3,16 @@ export const resolvers = {
     pets(root, args, context) {
       const { id } = root;
       const pets = context.models.Pet.findMany({ userId: id });
-      console.log('pets', pets);
       return pets;
     },
   },
   Query: {
     user(root, args, context) {
       const user = context.models.User.find({ id: args.id });
-      console.log('user = ', user);
       return user;
     },
     pet(root, args, context) {
-      console.log('args = ', args);
       const pet = context.models.Pet.findOne({ id: args.id });
-      console.log('pet', pet);
       return pet;
     },
   },

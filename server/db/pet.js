@@ -15,9 +15,7 @@ export const createPetModel = (db) => {
     },
 
     create(props) {
-      console.log('pet = ', props);
       const pets = db.get('pets').value();
-      console.log('pets = ', pets);
       const pet = { id: nanoid(), createdAt: Date.now(), ...props };
       const newPets = [...pets, pet];
 
