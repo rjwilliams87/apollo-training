@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "id": "test-default-user-001",
+      "username": "username",
+      "password": "password",
+      "name": {
+        "first": "Steve",
+        "last": "Brule"
+      }
+    }
+  ],
+  "pets": [
+    {
+      "id": "3lbRS1TBMKywt41B7ne8v",
+      "createdAt": 1612854078712,
+      "name": "zeke",
+      "type": "dog",
+      "breed": "german shepard",
+      "userId": "test-default-user-001"
+    },
+    {
+      "id": "test-default-pet",
+      "name": "Diogo",
+      "type": "dog",
+      "breed": "pug",
+      "userId": "test-default-user-001"
+    }
+  ]
+}

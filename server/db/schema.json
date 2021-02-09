@@ -1,0 +1,19 @@
+{
+  "user": {
+    "id": "string",
+    "username": "string",
+    "password": "string",
+    "name": {
+      "first": "string",
+      "last": "string"
+    },
+    "zip": "string"
+  },
+  "pet": {
+    "id": "string",
+    "name": "string",
+    "type": "string",
+    "breed": "string",
+    "userId": "string"
+  }
+}
