@@ -57,6 +57,8 @@ export const typeDefs = gql`
 
     updatePet(id: ID!, props: PetInput!): Pet!
 
+    deletePet(id: ID!): ID!
+
     login(username: String!, password: String!): ID!
   }
 `;

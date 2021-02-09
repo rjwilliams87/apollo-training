@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core';
 
 import { Layout } from '../layout';
+import { QUERY_USER } from '../dashboard';
 
 const useStyles = makeStyles({
   form: {
@@ -75,11 +76,16 @@ export const CreatePet = () => {
         userId,
       },
     },
+    // awaitRefetchQueries: true,
+    // refetchQueries: [
+    //   {
+    //     query: QUERY_USER,
+    //     variables: {
+    //       id: userId,
+    //     },
+    //   },
+    // ],
   });
-
-  console.log('error = ', error);
-
-  console.log('data = ', data);
 
   if (data?.createPet?.id) {
     return <Redirect to={`/pet/${data.createPet.id}`} />;

@@ -47,7 +47,7 @@ const useStyles = makeStyles({
   },
 });
 
-const QUERY_USER = gql`
+export const QUERY_USER = gql`
   query queryUser($id: ID!) {
     user(id: $id) {
       id
@@ -60,6 +60,7 @@ const QUERY_USER = gql`
         id
         name
       }
+      zip
       city @client
     }
   }

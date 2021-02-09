@@ -1,6 +1,6 @@
 import React from 'react';
 import { gql, useMutation, useQuery } from '@apollo/client';
-import { useParams } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 import {
   Box,
   Button,
@@ -59,7 +59,7 @@ const QUERY_PET = gql`
   }
 `;
 
-const UPDATE_PET = gql`
+const update_PET = gql`
   mutation updatePet($id: ID!, $props: PetInput!) {
     updatePet(id: $id, props: $props) {
       id
@@ -71,6 +71,19 @@ const UPDATE_PET = gql`
   }
 `;
 
+const DELETE_PET = gql`
+  mutation deletePet($id: ID!) {
+    deletePet(id: $id)
+  }
+`;
+
+// const removePetFromCache = (cache, response) => {
+//   const id = response.data.deletePet;
+//   cache.evict({
+//     id: cache.identify({ id, __typename: 'Pet' }),
+//   });
+// };
+
 export const Pet = () => {
   const styles = useStyles();
   const [name, setName] = React.useState('');
@@ -81,7 +94,7 @@ export const Pet = () => {
   const { id } = useParams();
   const pet = useQuery(QUERY_PET, { variables: { id } });
 
-  const [update, response] = useMutation(UPDATE_PET, {
+  const [updatePet, updateResponse] = useMutation(update_PET, {
     variables: {
       id,
       props: {
@@ -100,6 +113,11 @@ export const Pet = () => {
     },
   });
 
+  const [deletePet, deleteResponse] = useMutation(DELETE_PET, {
+    variables: { id },
+    // update: removePetFromCache,
+  });
+
   React.useEffect(() => {
     if (pet?.data?.pet) {
       setName(pet.data.pet.name);
@@ -108,6 +126,10 @@ export const Pet = () => {
       setUserId(pet.data.pet.userId);
     }
   }, [pet, setName, setType, setBreed]);
+
+  if (deleteResponse?.data) {
+    return <Redirect to="/dashboard/test-default-user-001" />;
+  }
 
   return (
     <Layout>
@@ -141,16 +163,26 @@ export const Pet = () => {
             variant="contained"
             color="primary"
             className={styles.button}
-            onClick={update}
+            onClick={updatePet}
           >
             Save
           </Button>
-          {response?.error?.message && (
+          <Button
+            variant="contained"
+            color="secondary"
+            className={styles.button}
+            onClick={deletePet}
+          >
+            Delete
+          </Button>
+          {updateResponse?.error?.message && (
             <Typography className={styles.error}>
               Error: {error.message}
             </Typography>
           )}
-          {!response?.error && response?.data && <div>Success!</div>}
+          {!updateResponse?.error && updateResponse?.data && (
+            <div>Success!</div>
+          )}
         </Box>
       </Container>
     </Layout>

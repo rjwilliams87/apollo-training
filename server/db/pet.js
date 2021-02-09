@@ -38,5 +38,16 @@ export const createPetModel = (db) => {
 
       return newPet;
     },
+
+    delete(id) {
+      const pets = db
+        .get('pets')
+        .value()
+        .filter((pet) => pet.id !== id);
+
+      db.set('pets', pets).write();
+
+      return id;
+    },
   };
 };

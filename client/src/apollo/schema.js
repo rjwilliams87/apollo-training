@@ -1,6 +1,7 @@
-// import { makeVar } from '@apollo/client';
-
 const zipToCity = (value) => {
+  if (value !== '64111') {
+    return value;
+  }
   return 'Kansas City, MO';
 };
 

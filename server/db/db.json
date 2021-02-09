@@ -2,28 +2,29 @@
   "users": [
     {
       "id": "test-default-user-001",
-      "username": "username",
+      "username": "brulesrules",
       "password": "password",
       "name": {
         "first": "Steve",
         "last": "Brule"
-      }
+      },
+      "zip": "64111"
     }
   ],
   "pets": [
     {
-      "id": "3lbRS1TBMKywt41B7ne8v",
-      "createdAt": 1612854078712,
-      "name": "zeke",
+      "id": "3t5NgFZpw0qvoLb4DrK_t",
+      "name": "Zeke",
       "type": "dog",
-      "breed": "german shepard",
+      "breed": "german sheperd",
       "userId": "test-default-user-001"
     },
     {
-      "id": "test-default-pet",
-      "name": "Diogo",
-      "type": "dog",
-      "breed": "pug",
+      "id": "He5Rq-3hCEQfUiGls4vX1",
+      "createdAt": 1612885868692,
+      "name": "Fury",
+      "type": "cat",
+      "breed": "Calico",
       "userId": "test-default-user-001"
     }
   ]

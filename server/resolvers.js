@@ -41,6 +41,10 @@ export const resolvers = {
       const pet = context.models.Pet.update(id, props);
       return pet;
     },
+    deletePet(root, args, context, info) {
+      const { id } = args;
+      return context.models.Pet.delete(id);
+    },
     login(root, args, context, info) {
       const { username, password } = args;
       const user = context.models.User.find({ username, password });

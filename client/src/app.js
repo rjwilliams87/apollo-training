@@ -9,7 +9,7 @@ import { CreatePet } from './createPet';
 
 export const App = () => (
   <Switch>
-    <Route exact path="/" render={() => <Redirect to="/login" />} key="base" />
+    <Route exact path="/" render={() => <Redirect to="/login" />} key="base" />,
     <Route exact path="/login" component={Login} key="login-component" />
     <Route exact path="/signup" component={Signup} key="signup-component" />
     <Route
