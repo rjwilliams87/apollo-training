@@ -59,6 +59,7 @@ export const QUERY_USER = gql`
       pets {
         id
         name
+        type
       }
       zip
     }

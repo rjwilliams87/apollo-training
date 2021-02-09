@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Avatar, Box, Card, makeStyles, Typography } from '@material-ui/core';
 
+import catImg from '../assets/blackcat.jpeg';
+import dogImg from '../assets/dog.png';
+
 const _pets = [
   {
     id: '1234',
@@ -59,6 +62,8 @@ const useStyles = makeStyles({
   },
   avatar: {
     margin: '0 1rem',
+    width: '80px',
+    height: '80px',
   },
 });
 
@@ -68,10 +73,19 @@ export const Pets = ({ pets = _pets }) => {
   return (
     <Box className={styles.container}>
       {pets.map((pet) => {
+        let img;
+
+        if (pet.type.toLowerCase() === 'dog') {
+          img = dogImg;
+        }
+        if (pet.type === 'cat') {
+          img = catImg;
+        }
+
         return (
           <Link to={`/pet/${pet.id}`} key={pet.id} className={styles.link}>
             <Card className={styles.card}>
-              <Avatar className={styles.avatar} />
+              <Avatar className={styles.avatar} src={img} />
               <Typography variant="h5">{pet.name}</Typography>
             </Card>
           </Link>
