@@ -12,14 +12,14 @@ import { theme } from './theme';
 const client = createClient();
 
 const Root = () => (
-  <ThemeProvider theme={theme}>
-    <CssBaseline />
-    <BrowserRouter>
-      <ApolloProvider client={client}>
+  <ApolloProvider client={client}>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <BrowserRouter>
         <App />
-      </ApolloProvider>
-    </BrowserRouter>
-  </ThemeProvider>
+      </BrowserRouter>
+    </ThemeProvider>
+  </ApolloProvider>
 );
 
 ReactDOM.render(<Root />, document.getElementById('app'));
